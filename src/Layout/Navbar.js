@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom'
 
 function Navbar()
 {
+  const handleLogout=()=>{
+    localStorage.removeItem('auth');
+    window.location.reload();
+  }
  return(
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <Link class="navbar-brand" href="#">Navbar</Link>
@@ -21,10 +25,10 @@ function Navbar()
       
       
     </ul>
-    <form class="d-flex" role="search">
+    <div class="d-flex" role="search">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+      <button onClick={handleLogout} class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+    </div>
   </div>
 </nav>
  )

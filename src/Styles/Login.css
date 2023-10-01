@@ -1,0 +1,41 @@
+.login-div{
+    display: flex;
+    width: 70%;
+    margin: auto;
+    height:300;
+    flex-direction: column;
+    align-self: center;
+    align-items: center;
+    /* border:2px solid rgb(237, 236, 236); */
+    padding: 1rem;
+    border-radius: 1.2rem;
+    box-shadow:0 0 4px 4px rgb(212, 212, 216);
+    margin-top: 10px;
+    
+}
+.form-control{
+    width: 100%;
+    
+    box-shadow: 4px 4px 4px rgb(205, 202, 202);
+}
+.form-group{
+    width:100%;
+    text-align: center;
+   
+}
+.btn{
+    width: 80%;
+    margin-top: 10px;
+    box-shadow: 4px 4px 4px rgb(173, 247, 62);
+}
+h5{
+    margin-top: 10px;
+    font-size: smaller;
+}
+h1{
+    padding: 1rem;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: brown;
+}

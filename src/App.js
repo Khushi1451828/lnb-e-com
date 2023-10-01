@@ -12,9 +12,9 @@ function App()
   }
     return(
         <>
-        {auth == false ? <AuthRoutes/> : <AllRoutes/>}
-          <AllRoutes/>   
-        <button onClick={handleAuth}>{auth== true ? "Logout" :"Login"}</button>
+        {localStorage.getItem('auth') == 'undefined' || localStorage.getItem('auth') == null || localStorage.getItem('auth')=="" ?<AuthRoutes/> : <AllRoutes/>}
+            
+        {/* <button onClick={handleAuth}>{auth== true ? "Logout" :"Login"}</button> */}
         </>
         
     )

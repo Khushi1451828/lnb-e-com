@@ -1,46 +1,51 @@
 import { useState } from "react";
-
+import '../Styles/Login.css';
+import { Link } from "react-router-dom";
 
 function Login()
 {
     const [values,setValues]=useState({
-        name:"",
+        
         email:"",
-        mobile:"",
-        password:"",
-        address:"",
-        temp_file:"",
-        files:""
-    }
+        password:""
+}
 
     );
-    const handleInput=(e)=>
-    {
+    const handleSubmit=()=>{
+        if(!values.email)
+        {
+            alert("please enter your email")
+        }
+        else if(!values.password)
+        {
+            alert("please enter your password");
+        }
+        else{
+            localStorage.setItem('auth',values.email)
+            window.location.reload();
+        }
+    }
+    const handleInput=(e)=>{
         setValues({...values,[e.target.name]:e.target.value})
     }
-    const handleSubmit=()=>{
-        console.log(values) 
-    }
-    const handleFile=(e)=>{
-console.log(e.target.files);
-setValues({...values,['temp_file']:URL.createObjectURL(e.target.files[0]),["file"]:e.target.files[0]})
-    }
+    
     return(
 <>
-   <input placeholder="enter your name" name="name"  value={values.name} onChange={handleInput}/>
-   <br></br>
-   <input placeholder="enter your email" name="email"  value={values.email} onChange={handleInput}/>
-   <br></br>
-   <input placeholder="enter your mobile" name="mobile"  value={values.mobile} onChange={handleInput}/>
-   <br></br>
-   <input placeholder="enter your password" name="password"  value={values.password} onChange={handleInput}/>
-   <br></br>
-   <input placeholder="enter your address" name="address"  value={values.address} onChange={handleInput}/>
-   <br></br>
-   <input type="file" onChange={handleFile}/>
-   <br></br>
-   <img src={values.temp_file} width={200} height={200}/>
-   <button onClick={handleSubmit}>submit</button>
+        <div className="login-div">
+        <h1>Login Here</h1>
+        <div className="form-group">
+    <label for="email">Email address</label>
+    <input type="email" onChange={handleInput} value={values.email} name="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter Your email"/>
+    
+  </div>
+  <div className="form-group">
+    <label for="password">Password</label>
+    <input type="password" onChange={handleInput} value={values.password} name="password" className="form-control" id="password" placeholder="Enter Your Password"/>
+  </div>
+  
+  <button type="submit" onClick={handleSubmit}  className="btn btn-primary">Submit</button>
+  <h5>Don't have an account ?</h5><Link to="/register">Register Here</Link>
+ </div>
 </>
     )
 }
