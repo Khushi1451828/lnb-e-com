@@ -8,9 +8,20 @@ function About()
     const [flag,setFlag]=useState(false);
     useEffect(()=>{
         console.log("i am here")
-    },[])
+        if(count === 5)
+        {
+            setFlag(true); 
+        }
+        else{
+            setFlag(false);
+        }
+        return () => {
+            console.log("bye");
+        }
+    },[count])
     const handleIncre=()=>{
         setCount(count+1);
+       
     }
     return(
         <>
