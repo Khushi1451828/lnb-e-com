@@ -1,8 +1,8 @@
 import {useEffect, useState } from 'react'
-
-
+import '../Styles/Cards.css';
+import { useNavigate } from 'react-router-dom';
 function Home(){
-
+const navigate = useNavigate();
 
 const [data , setData]  = useState([])    
  
@@ -14,7 +14,9 @@ fetch('https://dummyjson.com/products').then((data =>  data.json())).then((resul
 })
 
 }    
-
+const handleNavigate=(el)=>{
+  navigate('/viewmore/' + el.id,{state:el})
+}
 
 useEffect(()=>{
 fetchData()
@@ -27,7 +29,7 @@ fetchData()
 
 return(
     <>
-    <table class="table">
+    {/* <table class="table">
   <thead class="thead-dark">
     <tr>
       <th scope="col">#</th>
@@ -56,12 +58,29 @@ return(
    
   </tbody>
 </table>
+ */}
+ <div className="container-center">
+{data.map((el,i)=>(
 
+  <div class="card" style={{width: '18rem'}}>
+  <img class="card-img-top" src={el.images[0]} alt="Card image cap"/>
+  <div class="card-body">
+    <h5 class="card-title">{el.title}</h5>
 
-
+    <h6 class="card-title">Discount &#8377;{(el.price - (el.price*(el.discountPercentage/100))).toFixed(2)}</h6>
+    <h6 class="card-title">MRP <s>  &#8377;{el.price} ({el.discountPercentage+"%"})</s></h6>
     
+    <p class="card-text">{el.description}</p>
+    <a onClick={()=>{handleNavigate(el)}} class="btn btn-primary">View More</a>
+  </div>
+
+ 
+</div>
     
-    </>
+    ))}
+ </div>
+    </>   
+    
 )
 
 

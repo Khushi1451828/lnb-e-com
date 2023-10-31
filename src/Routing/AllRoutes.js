@@ -6,6 +6,7 @@ import About from "../Screens/About"
 
 
 import Navbar from '../Layout/Navbar'
+import ViewMore from '../Screens/ViewMore'
 
 function AllRoutes(){
 
@@ -18,8 +19,7 @@ return(
     <Route path="/"  element={<Home/>} />
     <Route path="/home"  element={<Home/>} />
     <Route path="/about"  element={<About/>} />
-
-</Routes>
+    <Route path="/viewmore/:id" element={<ViewMore/>}/></Routes>
 </>
 
 
