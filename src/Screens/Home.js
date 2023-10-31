@@ -5,7 +5,7 @@ function Home(){
 const navigate = useNavigate();
 
 const [data , setData]  = useState([])    
- 
+const [o_data,setOData]=useState([]);
 function fetchData(){
 fetch('https://dummyjson.com/products').then((data =>  data.json())).then((result)=>{
     console.log(result)
@@ -22,13 +22,26 @@ useEffect(()=>{
 fetchData()
 },[])
 
-
+const handleSearch=(e)=>{
+  let tmp =  o_data;
+  let fd=tmp.filter((el)=>{
+    return el.title.toLowerCase().includes(e.target.value.toLowerCase());
+  })
+   setData(fd);
+}
     
 
 
 
 return(
     <>
+    <div class="input-group">
+  <div class="form-outline" style={{width:"100%",marginTop:20,marginBottom:30}}>
+    <input onChange={handleSearch} style={{width:"80%",margin:"auto"}} type="search" id="form1" class="form-control" />
+    
+  </div>
+  
+</div> 
     {/* <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -60,6 +73,7 @@ return(
 </table>
  */}
  <div className="container-center">
+ 
 {data.map((el,i)=>(
 
   <div class="card" style={{width: '18rem'}}>
@@ -69,7 +83,7 @@ return(
 
     <h6 class="card-title">Discount &#8377;{(el.price - (el.price*(el.discountPercentage/100))).toFixed(2)}</h6>
     <h6 class="card-title">MRP <s>  &#8377;{el.price} ({el.discountPercentage+"%"})</s></h6>
-    
+     
     <p class="card-text">{el.description}</p>
     <a onClick={()=>{handleNavigate(el)}} class="btn btn-primary">View More</a>
   </div>
