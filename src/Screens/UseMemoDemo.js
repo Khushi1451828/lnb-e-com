@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 function MemoDemo()
 {
@@ -13,7 +13,7 @@ function MemoDemo()
         }
         return num;
     }
-    const calculation = Heavycalculation(count);
+    const calculation = useMemo (()=>Heavycalculation(count),[count])
     const incre=()=>{
         setCount(count+1)
     }
