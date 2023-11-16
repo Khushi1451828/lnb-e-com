@@ -10,6 +10,7 @@ import ViewMore from '../Screens/ViewMore'
 import MemoDemo from '../Screens/UseMemoDemo'
 import UseCallbackDemo from '../Screens/UseCallbackDemo'
 import ContextDemo from '../Screens/ContextDemo'
+import UseRefDemo from '../Screens/UseRefDemo'
 
 function AllRoutes(){
 
@@ -24,6 +25,7 @@ return(
     <Route path="/memodemo"  element={<MemoDemo/>} />
     <Route path="/callback-demo" element={<UseCallbackDemo/>}/>
 <Route path="/context-demo" element={<ContextDemo/>}/>
+<Route path="/useRef-demo" element={<UseRefDemo/>}/>
     <Route path="/about"  element={<About/>} />
     <Route path="/viewmore/:id" element={<ViewMore/>}/></Routes>
 </>
