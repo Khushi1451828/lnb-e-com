@@ -11,6 +11,7 @@ import MemoDemo from '../Screens/UseMemoDemo'
 import UseCallbackDemo from '../Screens/UseCallbackDemo'
 import ContextDemo from '../Screens/ContextDemo'
 import UseRefDemo from '../Screens/UseRefDemo'
+import UseReducer from '../Screens/UseReducer'
 
 function AllRoutes(){
 
@@ -26,6 +27,7 @@ return(
     <Route path="/callback-demo" element={<UseCallbackDemo/>}/>
 <Route path="/context-demo" element={<ContextDemo/>}/>
 <Route path="/useRef-demo" element={<UseRefDemo/>}/>
+<Route path="/useReducer" element={<UseReducer/>}/>
     <Route path="/about"  element={<About/>} />
     <Route path="/viewmore/:id" element={<ViewMore/>}/></Routes>
 </>
