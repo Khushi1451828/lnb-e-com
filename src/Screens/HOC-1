@@ -1,0 +1,36 @@
+
+//withsearch(HOC) is taking a component(wrappedcomponent) as its argument and it will  return also a component
+
+const WithSearch = WrappedComponent => {
+    const WithSearch = ()=>{
+
+    }
+    const ProductsWithSearch = () => {
+        const [searchItem,setSearchItem]=useState("")
+    
+        const [dataToShow,setDataToShow]=useState([])
+        const handleSearch=(e)=>{
+            setSearchItem(e.target.value)
+            var d = products.filter((el,i)=>{
+                return el.name.toLowerCase().includes(e.target.value)
+            }
+            )
+        setDataToShow(d);
+        
+    }
+    return(
+        <>
+            <input placeholder='Enter any text' value={searchItem} onChange={handleSearch}/>
+        <WrappedComponent data={dataToShow}/>
+        </>
+        
+    )
+    
+}
+WithSearch.displayName = `WithSearch(${getDisplayName(WrappedComponent)})`
+    return WithSearch
+
+    
+}
+export default WithSearch
+
