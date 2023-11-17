@@ -1,0 +1,29 @@
+import {type} from '@testing-library/user-event/dist/type'
+import React from 'react'
+
+const CountReducer = (state,action) => {
+    if(typeof this.state == 'undefined')
+    {
+        return{
+            count:0
+        }
+    }
+    switch(action.type)
+    {
+        case "INCRE":
+            return{
+                ...state,
+                count:action.count
+            }
+        case "DECRE":
+            return {
+                ...state,
+                count:action.count
+            }
+            default:
+                return state
+    }
+  
+}
+
+export default CountReducer
